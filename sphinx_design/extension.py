@@ -74,9 +74,7 @@ def capture_directives(app: Sphinx):
     app.add_directive = add_directive  # type: ignore[method-assign]
 
 
-def _resolve_new_tab_refs(
-    app: Sphinx, doctree: nodes.document, docname: str
-) -> None:
+def _resolve_new_tab_refs(app: Sphinx, doctree: nodes.document, docname: str) -> None:
     """Set ``target`` and ``rel`` on card link references that request a new tab.
 
     Cross-references are resolved to ``nodes.reference`` during the write

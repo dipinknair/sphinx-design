@@ -310,9 +310,9 @@ def test_card_url_new_tab(fmt, sphinx_builder):
     builder = _build(sphinx_builder, fmt, NEW_TAB_URL_RST, NEW_TAB_URL_MYST)
     html = (builder.out_path / "index.html").read_text(encoding="utf8")
     assert _stretched_link_hrefs(html) == ["https://example.com"]
-    assert re.search(
-        r'<a [^>]*sd-stretched-link[^>]*target="_blank"', html
-    ), "target=_blank not found on stretched-link anchor"
+    assert re.search(r'<a [^>]*sd-stretched-link[^>]*target="_blank"', html), (
+        "target=_blank not found on stretched-link anchor"
+    )
     assert re.search(
         r'<a [^>]*sd-stretched-link[^>]*rel="noreferrer noopener"', html
     ), "rel=noreferrer noopener not found on stretched-link anchor"
@@ -363,9 +363,9 @@ def test_card_ref_new_tab(fmt, sphinx_builder):
     builder = _build(sphinx_builder, fmt, NEW_TAB_REF_RST, NEW_TAB_REF_MYST)
     html = (builder.out_path / "index.html").read_text(encoding="utf8")
     assert "#my-section" in _stretched_link_hrefs(html)
-    assert re.search(
-        r'<a [^>]*sd-stretched-link[^>]*target="_blank"', html
-    ), "target=_blank not found on resolved ref anchor"
+    assert re.search(r'<a [^>]*sd-stretched-link[^>]*target="_blank"', html), (
+        "target=_blank not found on resolved ref anchor"
+    )
     assert re.search(
         r'<a [^>]*sd-stretched-link[^>]*rel="noreferrer noopener"', html
     ), "rel=noreferrer noopener not found on resolved ref anchor"
@@ -406,6 +406,6 @@ def test_grid_item_card_new_tab(fmt, sphinx_builder):
     builder = _build(sphinx_builder, fmt, NEW_TAB_GRID_RST, NEW_TAB_GRID_MYST)
     html = (builder.out_path / "index.html").read_text(encoding="utf8")
     assert _stretched_link_hrefs(html) == ["https://example.com"]
-    assert re.search(
-        r'<a [^>]*sd-stretched-link[^>]*target="_blank"', html
-    ), "target=_blank not found on grid-item-card stretched-link anchor"
+    assert re.search(r'<a [^>]*sd-stretched-link[^>]*target="_blank"', html), (
+        "target=_blank not found on grid-item-card stretched-link anchor"
+    )
